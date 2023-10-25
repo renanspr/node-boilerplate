@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-ssr
+*.local
+node_modules/*
+.vscode
+package-lock.json
+package.json
+tsconfig.json
