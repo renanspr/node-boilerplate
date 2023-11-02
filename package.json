@@ -1,11 +1,14 @@
 {
   "name": "back-erp",
   "version": "1.0.0",
-  "description": "",
+  "description": "ERP server side",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "Renan",
   "license": "ISC",
+  "engines": {
+    "node": "20.9.0"
+  },
   "scripts": {
     "start": "tsx src/server.ts",
     "start:dev": "tsx watch src/server.ts",
@@ -30,6 +33,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "prisma": "^5.4.1",
     "prisma-erd-generator": "^1.11.1",
+    "supertest": "^6.3.3",
     "tsup": "^7.2.0",
     "tsx": "^3.13.0",
     "typescript": "^5.2.2",

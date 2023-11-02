@@ -4,7 +4,7 @@ import { createUserController } from '@controllers/user'
 const router = Router()
 
 // User routes
-router.post('/users', (request, response) => {
+router.post('/api/users', (request, response) => {
   createUserController(request, response)
 })
 
