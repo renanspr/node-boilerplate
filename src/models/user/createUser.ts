@@ -1,4 +1,4 @@
-import { prisma } from 'prisma'
+import { prisma } from '@libs/prisma'
 import { type CreateUserData } from './types'
 
 const createUserModel = async (user: CreateUserData): Promise<void> => {
