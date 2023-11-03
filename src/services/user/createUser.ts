@@ -1,7 +1,7 @@
 import { createUserModel, findByEmail } from '@models/user'
 import bcrypt from 'bcrypt'
 
-import { type CreateUserService } from './types'
+import { type CreateUserService, type CreateUserServiceResponse } from './types'
 
 const encryptPassword = (password: string): string => {
   const salt = bcrypt.genSaltSync(10)
@@ -10,7 +10,7 @@ const encryptPassword = (password: string): string => {
   return hash
 }
 
-const createUserService = async (user: CreateUserService): Promise<void> => {
+const createUserService = async (user: CreateUserService): Promise<CreateUserServiceResponse> => {
   const { email, name, password } = user
 
   if (!name || !email || !password) {
@@ -25,7 +25,13 @@ const createUserService = async (user: CreateUserService): Promise<void> => {
 
   const hashPassword = encryptPassword(password)
 
-  await createUserModel({ name, email, password: hashPassword })
+  const createdUser = await createUserModel({ name, email, password: hashPassword })
+
+  return {
+    id: createdUser.id,
+    email: createdUser.email,
+    name: createdUser.name
+  }
 }
 
 export { createUserService }

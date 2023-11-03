@@ -1,16 +1,19 @@
-import { prisma } from '@libs/prisma'
-import { type CreateUserData } from './types'
+import { prisma } from 'libs/prisma'
 
-const createUserModel = async (user: CreateUserData): Promise<void> => {
+import { type CreateUserData, type CreateUserDataResponse } from './types'
+
+const createUserModel = async (user: CreateUserData): Promise<CreateUserDataResponse> => {
   const { email, name, password } = user
 
-  await prisma.user.create({
+  const createdUser = await prisma.user.create({
     data: {
       name,
       email,
       password
     }
   })
+
+  return createdUser
 }
 
 const findByEmail = async (email: string): Promise<CreateUserData | null> => {
@@ -19,8 +22,6 @@ const findByEmail = async (email: string): Promise<CreateUserData | null> => {
       email
     }
   })
-
-  console.log(user)
 
   return user
 }

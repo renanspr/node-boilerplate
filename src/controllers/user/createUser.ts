@@ -5,15 +5,13 @@ const createUserController = async (request: Request, response: Response): Promi
   const { email, name, password } = request.body
 
   try {
-    await createUserService({
+    const user = await createUserService({
       email,
       name,
       password
     })
 
-    return response.status(201).json({
-      message: 'User created successfully'
-    })
+    return response.status(201).json(user)
   } catch (error) {
     return response.status(400).json({
       error: error.message || 'Unexpected error'

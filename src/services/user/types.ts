@@ -3,3 +3,9 @@ export interface CreateUserService {
   name: string
   password: string
 }
+
+export interface CreateUserServiceResponse {
+  id: string
+  email: string
+  name: string
+}
