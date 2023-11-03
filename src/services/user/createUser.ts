@@ -1,4 +1,4 @@
-import { createUserModel, findByEmail } from '@models/user'
+import { createUserModel, findUserByEmail } from '@models/user'
 import bcrypt from 'bcrypt'
 
 import { type CreateUserService, type CreateUserServiceResponse } from './types'
@@ -17,7 +17,7 @@ const createUserService = async (user: CreateUserService): Promise<CreateUserSer
     throw new Error('Name, email or password are required')
   }
 
-  const userExists = await findByEmail(email)
+  const userExists = await findUserByEmail(email)
 
   if (userExists) {
     throw new Error('User already exists')

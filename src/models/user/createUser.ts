@@ -1,4 +1,4 @@
-import { prisma } from 'libs/prisma'
+import { prisma } from '@libs/prisma'
 
 import { type CreateUserData, type CreateUserDataResponse } from './types'
 
@@ -16,7 +16,7 @@ const createUserModel = async (user: CreateUserData): Promise<CreateUserDataResp
   return createdUser
 }
 
-const findByEmail = async (email: string): Promise<CreateUserData | null> => {
+const findUserByEmail = async (email: string): Promise<CreateUserData | null> => {
   const user = await prisma.user.findUnique({
     where: {
       email
@@ -26,4 +26,4 @@ const findByEmail = async (email: string): Promise<CreateUserData | null> => {
   return user
 }
 
-export { createUserModel, findByEmail }
+export { createUserModel, findUserByEmail }
