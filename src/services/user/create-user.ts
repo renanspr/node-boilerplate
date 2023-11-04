@@ -1,7 +1,6 @@
-import { createUserModel, findUserByEmail } from '@models/user'
 import bcrypt from 'bcrypt'
-
-import { type CreateUserService, type CreateUserServiceResponse } from './types'
+import { createUserModel, findUserByEmail } from '@models/user'
+import type { CreateUserService, CreateUserServiceResponse } from './types'
 
 const encryptPassword = (password: string): string => {
   const salt = bcrypt.genSaltSync(10)

@@ -8,6 +8,6 @@ export const errorHandler = (
 ): void => {
   response.status('statusCode' in error ? (error.statusCode as number) : 500).json({
     message:
-        error ? error.message : 'Oops! Something wonky happened...'
+       error.message ? error.message : 'Oops! Something wonky happened...'
   })
 }

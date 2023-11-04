@@ -1,7 +1,7 @@
-import { type Request, type Response } from 'express'
 import { createUserService } from '@services/user'
+import type { Request, Response, NextFunction } from 'express'
 
-const createUserController = async (request: Request, response: Response): Promise<Response> => {
+const createUserController = async (request: Request, response: Response, next: NextFunction) => {
   const { email, name, password } = request.body
 
   try {
@@ -13,9 +13,7 @@ const createUserController = async (request: Request, response: Response): Promi
 
     return response.status(201).json(user)
   } catch (error) {
-    return response.status(400).json({
-      error: error.message || 'Unexpected error'
-    })
+    next(error)
   }
 }
 
