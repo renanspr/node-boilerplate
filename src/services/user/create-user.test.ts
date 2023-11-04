@@ -10,6 +10,6 @@ describe('createUserService', () => {
 
     prisma.user.findUnique.mockResolvedValue({ ...newUser, id: 'id' })
 
-    expect(createUserService(newUser)).rejects.toThrow()
+    expect(createUserService(newUser)).rejects.toThrowError('User already exists')
   })
 })
