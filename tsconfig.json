@@ -33,7 +33,6 @@
       "@controllers/*": ["controllers/*"],
       "@models/*": ["models/*"],
       "@services/*": ["services/*"],
-      "@utils/*": ["utils/*"],
       "@middlewares/*": ["middlewares/*"],
       "@libs/*": ["libs/*"],
       "@helpers/*": ["helpers/*"]

@@ -5,7 +5,7 @@ import { prisma } from './helpers/prisma'
 
 describe('/api/users', async () => {
   describe('[POST] /api/users', async () => {
-    it('should respond with a `201` status code and user details', async () => {
+    it('should respond with status `201` and return user details', async () => {
       const { status, body } = await request(app).post('/api/users').send({
         email: 'testemail',
         name: 'testname',
@@ -16,10 +16,10 @@ describe('/api/users', async () => {
 
       expect(status).toBe(201)
       expect(newUser).not.toBeNull()
-      expect(body.user).toStrictEqual({
+      expect(body).toStrictEqual({
         id: newUser?.id,
-        email: 'testemail',
-        name: 'testname'
+        email: newUser?.email,
+        name: newUser?.name
       })
     })
   })

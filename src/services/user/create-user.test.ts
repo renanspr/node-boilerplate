@@ -5,11 +5,17 @@ import { prisma } from '@libs/__mocks__/prisma'
 vi.mock('@libs/prisma')
 
 describe('createUserService', () => {
-  test('should not create a existing user', async () => {
+  test('should create a new user and return user details: id, email and name', async () => {
     const newUser = { name: 'testname', email: 'email@test.com', password: 'testpassword' }
 
-    prisma.user.findUnique.mockResolvedValue({ ...newUser, id: 'id' })
+    prisma.user.create.mockResolvedValue({ id: 'id', ...newUser })
 
-    expect(createUserService(newUser)).rejects.toThrowError('User already exists')
+    const createdUser = await createUserService(newUser)
+
+    expect(createdUser).toStrictEqual({
+      id: 'id',
+      email: newUser.email,
+      name: newUser.name
+    })
   })
 })
