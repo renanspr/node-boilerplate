@@ -6,7 +6,7 @@ vi.mock('@libs/prisma')
 
 describe('createUserService', () => {
   test('should not create a existing user', async () => {
-    const newUser = { name: 'User Name', email: 'user@email.com', password: 'UserPassword' }
+    const newUser = { name: 'testname', email: 'email@test.com', password: 'testpassword' }
 
     prisma.user.findUnique.mockResolvedValue({ ...newUser, id: 'id' })
 
