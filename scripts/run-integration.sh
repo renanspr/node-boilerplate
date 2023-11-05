@@ -11,9 +11,20 @@ $DIR/wait-for-it.sh "${DATABASE_URL}" -- echo '🟢 - Database is ready!'
 
 npx prisma migrate dev --name init
 
-if [ "$#" -eq  "0" ]
-  then
-    vitest -c ./vitest.config.integration.ts
-else
-    vitest -c ./vitest.config.integration.ts --ui
-fi
+handle_flag() {
+    case $1 in
+        -ui) vitest -c ./vitest.config.integration.ts --ui
+            ;;
+        -run) vitest -c ./vitest.config.integration.ts --run
+            ;;
+        -default) vitest -c ./vitest.config.integration.ts
+            ;;
+        *) echo "Flag desconhecida: $1"
+            ;;
+    esac
+}
+
+for arg in "$@"
+do
+    handle_flag $arg
+done
