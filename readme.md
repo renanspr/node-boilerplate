@@ -1,6 +1,6 @@
-# BACK ERP
+# Node js boilerplate
 
-Server side application for a ERP
+Using: express, ts, prisma, pg, docker, eslint
 
 ## Prerequisites
 
