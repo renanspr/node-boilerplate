@@ -19,8 +19,6 @@ handle_flag() {
             ;;
         -default) vitest -c ./vitest.config.integration.ts
             ;;
-        *) echo "Flag desconhecida: $1"
-            ;;
     esac
 }
 
