@@ -15,7 +15,7 @@
     "test:ui": "vitest -c ./vitest.config.unit.ts --ui",
     "test:int": "./scripts/run-integration.sh -default",
     "test:int:ui": "./scripts/run-integration.sh -ui",
-    "test:ci": "vitest -c ./vitest.config.unit.ts --run --silent && ./scripts/run-integration.sh -run -silent",
+    "test:ci": "vitest -c ./vitest.config.unit.ts --run && ./scripts/run-integration.sh -run",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "lint:check": "eslint . --ext .ts,.tsx --max-warnings 0",
     "generate": "npx prisma generate",
