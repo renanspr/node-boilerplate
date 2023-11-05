@@ -21,7 +21,8 @@
     "migrate:dev": "npx prisma migrate dev",
     "migrate:prod": "npx prisma migrate deploy",
     "studio": "npx prisma studio",
-    "postinstall": "npm run migrate:dev"
+    "postinstall": "npm run migrate:dev",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -35,6 +36,7 @@
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-n": "^16.1.0",
     "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
     "prisma": "^5.4.1",
     "prisma-erd-generator": "^1.11.1",
     "supertest": "^6.3.3",
