@@ -19,6 +19,8 @@ handle_flag() {
             ;;
         -run) vitest -c ./vitest.config.integration.ts --run
             ;;
+        -coverage) vitest -c ./vitest.config.integration.ts --coverage
+            ;;
     esac
 }
 

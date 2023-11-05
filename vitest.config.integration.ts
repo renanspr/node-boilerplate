@@ -5,6 +5,9 @@ export default mergeConfig(vitestConfig, defineConfig({
   test: {
     include: ['src/tests/**/*.test.ts'],
     threads: false,
-    setupFiles: ['src/tests/helpers/setup.ts']
+    setupFiles: ['src/tests/helpers/setup.ts'],
+    coverage: {
+      enabled: true
+    }
   }
 }))
