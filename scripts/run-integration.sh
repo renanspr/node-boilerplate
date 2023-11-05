@@ -13,11 +13,13 @@ npx prisma migrate dev --name init
 
 handle_flag() {
     case $1 in
+        -default) vitest -c ./vitest.config.integration.ts
+            ;;
         -ui) vitest -c ./vitest.config.integration.ts --ui
             ;;
         -run) vitest -c ./vitest.config.integration.ts --run
             ;;
-        -default) vitest -c ./vitest.config.integration.ts
+        -silent) vitest -c ./vitest.config.integration.ts --silent
             ;;
     esac
 }
